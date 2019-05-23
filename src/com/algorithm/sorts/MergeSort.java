@@ -2,43 +2,44 @@ package com.algorithm.sorts;
 
 
 /**
+  * 
  * https://www.cnblogs.com/chengxiao/p/6194356.html
- * ¹é²¢ÅÅĞò O(NlogN)  ¿Õ¼ä O(N) ÎÈ¶¨
- * ¹é²¢ÅÅĞòÎÒÃÇ²ÉÓÃµİ¹éÈ¥ÊµÏÖ£¨Ò²¿É²ÉÓÃµü´úµÄ·½Ê½È¥ÊµÏÖ£©¡£·Ö½×¶Î¿ÉÒÔÀí½âÎª¾ÍÊÇµİ¹é²ğ·Ö×ÓĞòÁĞµÄ¹ı³Ì£¬µİ¹éÉî¶ÈÎªlog2n¡£
- * ÖÎ(conquer)µÄ½×¶ÎÔò½«·ÖµÄ½×¶ÎµÃµ½µÄ¸÷´ğ°¸"ĞŞ²¹"ÔÚÒ»Æğ£¬¼´·Ö¶øÖÎÖ®)¡£
+ * å½’å¹¶æ’åº O(NlogN)  ç©ºé—´ O(N) ç¨³å®š
+ * å½’å¹¶æ’åºæˆ‘ä»¬é‡‡ç”¨é€’å½’å»å®ç°ï¼ˆä¹Ÿå¯é‡‡ç”¨è¿­ä»£çš„æ–¹å¼å»å®ç°ï¼‰ã€‚åˆ†é˜¶æ®µå¯ä»¥ç†è§£ä¸ºå°±æ˜¯é€’å½’æ‹†åˆ†å­åºåˆ—çš„è¿‡ç¨‹ï¼Œé€’å½’æ·±åº¦ä¸ºlog2nã€‚
+ * æ²»(conquer)çš„é˜¶æ®µåˆ™å°†åˆ†çš„é˜¶æ®µå¾—åˆ°çš„å„ç­”æ¡ˆ"ä¿®è¡¥"åœ¨ä¸€èµ·ï¼Œå³åˆ†è€Œæ²»ä¹‹)ã€‚
  */
 public class MergeSort {
    public static void main(String[] args) {
 
       int[] data = {4,6,1,3,1};
 
-      System.out.println("ÅÅĞòÖ®Ç°£º\n" + java.util.Arrays.toString(data));
+      System.out.println("æ’åºä¹‹å‰ï¼š\n" + java.util.Arrays.toString(data));
 
       mergeSort(data);
 
-      System.out.println("ÅÅĞòÖ®ºó£º\n" + java.util.Arrays.toString(data));
+      System.out.println("æ’åºä¹‹åï¼š\n" + java.util.Arrays.toString(data));
    }
 
    public static void mergeSort(int[] data) {
-      // ¹é²¢ÅÅĞò
+      // å½’å¹¶æ’åº
       sort(data, 0, data.length - 1);
    }
 
-   // ½«Ë÷Òı´Óleftµ½right·¶Î§µÄÊı×éÔªËØ½øĞĞ¹é²¢ÅÅĞò
+   // å°†ç´¢å¼•ä»leftåˆ°rightèŒƒå›´çš„æ•°ç»„å…ƒç´ è¿›è¡Œå½’å¹¶æ’åº
    private static void sort(int[] data, int left, int right) {
       if(left < right){
 
-         //ÕÒ³öÖĞ¼äË÷Òı
+         //æ‰¾å‡ºä¸­é—´ç´¢å¼•
          int center = (left + right)/2;
          sort(data,left,center);
          sort(data,center+1,right);
 
-         //ºÏ²¢
+         //åˆå¹¶
          merge(data,left,center,right);
       }
    }
 
-   // ½«Á½¸öÊı×é½øĞĞ¹é²¢£¬¹é²¢Ç°Á½¸öÊı×éÒÑ¾­ÓĞĞò£¬¹é²¢ºóÒÀÈ»ÓĞĞò
+   // å°†ä¸¤ä¸ªæ•°ç»„è¿›è¡Œå½’å¹¶ï¼Œå½’å¹¶å‰ä¸¤ä¸ªæ•°ç»„å·²ç»æœ‰åºï¼Œå½’å¹¶åä¾ç„¶æœ‰åº
    private static void merge(int[] data, int left, int center, int right) {
 
       int[] tempArr = new int[data.length];
