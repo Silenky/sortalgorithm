@@ -7,6 +7,7 @@ package com.algorithm.sorts;
  * 归并排序 O(NlogN)  空间 O(N) 稳定
  * 归并排序我们采用递归去实现（也可采用迭代的方式去实现）。分阶段可以理解为就是递归拆分子序列的过程，递归深度为log2n。
  * 治(conquer)的阶段则将分的阶段得到的各答案"修补"在一起，即分而治之)。
+ * 先定义的动感
  */
 public class MergeSort {
    public static void main(String[] args) {
